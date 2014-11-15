@@ -1,0 +1,15 @@
+{
+    "name": "atoms.ide",
+    "ignore": [
+            "**/.*",
+            "node_modules",
+            "bower_components",
+            "test",
+            "tests"
+    ],
+    "dependencies": {
+        "atoms"                     : "*",
+        "atoms-icons"               : "*",
+        "stylmethods"               : "*"
+    }
+}

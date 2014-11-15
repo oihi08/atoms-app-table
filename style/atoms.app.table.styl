@@ -1,0 +1,42 @@
+/* SIZE */
+U = 1rem
+
+[data-molecule-table]
+  width: 100%
+  font-weight: 400
+  &, & > *
+    min-height: U
+
+  > thead
+    color: white
+    font-size: 65%
+    text-transform: uppercase
+    > * > *
+      position: relative
+      right: 0
+      background-color: rgba(0,0,0,0.35)
+      transition right 200ms
+
+  > tbody
+    > [data-atom-tablerow]
+      &:nth-child(even)
+        background-color: rgba(0,0,0,0.05)
+
+  td, th
+   padding: (U / 4) (U / 2)
+
+// [data-screen=small]
+
+[data-screen=normal]
+  [data-molecule-table]
+    > thead > * > *
+      &:hover
+        cursor: pointer
+        background-color: rgba(0,0,0,0.4)
+      &.drag
+        right: U
+        opacity: 0.5
+    > tbody > [data-atom-tablerow]:hover
+      background-color: rgba(0,0,0,0.15)
+      color: white
+      cursor: pointer

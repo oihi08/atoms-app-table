@@ -1,0 +1,8 @@
+/**
+ * atoms.app.table - 
+ * @version v0.11.07
+ * @link    http://tapquo.com
+ * @author   ()
+ * @license 
+ */
+[data-molecule-table]{width:100%;font-weight:400;}[data-molecule-table],[data-molecule-table] > *{min-height:1rem}[data-molecule-table] > thead{color:#fff;font-size:65%;text-transform:uppercase;}[data-molecule-table] > thead > * > *{position:relative;right:0;background-color:rgba(0,0,0,0.35);-webkit-transition:right 200ms;-moz-transition:right 200ms;-ms-transition:right 200ms;transition:right 200ms}[data-molecule-table] > tbody > [data-atom-tablerow]:nth-child(even){background-color:rgba(0,0,0,0.05)}[data-molecule-table] td,[data-molecule-table] th{padding:.25rem .5rem}[data-screen=normal] [data-molecule-table] > thead > * > *:hover{cursor:pointer;background-color:rgba(0,0,0,0.4)}[data-screen=normal] [data-molecule-table] > thead > * > *.drag{right:1rem;opacity:.5}[data-screen=normal] [data-molecule-table] > tbody > [data-atom-tablerow]:hover{background-color:rgba(0,0,0,0.15);color:#fff;cursor:pointer}
