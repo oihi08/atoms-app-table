@@ -38,10 +38,19 @@ class Atoms.Molecule.Table extends Atoms.Class.Molecule
       @el.prepend """<thead><tr >#{columns}</tr></thead>"""
       do @_bindColumnOrder
 
+  # -- Public Events -----------------------------------------------------------
+  row: (value) ->
+    if !isNaN(value)
+      atom = @children[value]
+    else if value?.uid?
+      break for atom in @_records when atom.entity.uid is value.uid
+    @_activeRow atom if atom
 
   # -- Children Bubble Events --------------------------------------------------
-  onTableRowTouch: ->
-    console.log ">>>>>"
+  onTableRowTouch: (event, atom) ->
+    @bubble "select", atom
+    @_activeRow atom
+    false
 
   # -- Private Methods ---------------------------------------------------------
   _bindColumnOrder: ->
@@ -72,3 +81,6 @@ class Atoms.Molecule.Table extends Atoms.Class.Molecule
           .siblings().removeClass "drag"
       else
         Atoms.$(@source).siblings().removeClass "drag"
+
+  _activeRow: (atom) ->
+    atom.el.addClass("active").siblings().removeClass("active")

@@ -3,7 +3,7 @@
 $$ ->
   console.log Atoms.version, " || ", __.version
 
-  new Atoms.Molecule.Table
+  table = new Atoms.Molecule.Table
     container     : "article#extension > section"
     style         : "my_own_style"
     # caption       : "First version of Table extension for Atoms.App"
@@ -51,4 +51,9 @@ $$ ->
       year  : 1980
     Atoms.Entity.Contact.all()[1].destroy()
     cata.updateAttributes name: "Catilla"
-  , 10
+    table.row 2 # Select by index
+  , 1000
+
+  setTimeout =>
+    table.row cata # Select by entity
+  , 2000

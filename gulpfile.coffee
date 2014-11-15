@@ -41,7 +41,7 @@ gulp.task "webserver", ->
 gulp.task "coffee", ->
   gulp.src source.coffee
     .pipe concat "#{pkg.name}.coffee"
-    .pipe coffee().on "error", gutil.log
+    .pipe(coffee().on('error', gutil.log))
     .pipe uglify mangle: false
     .pipe header banner, pkg: pkg
     .pipe gulp.dest "."
@@ -51,9 +51,7 @@ gulp.task "coffee", ->
 gulp.task "stylus", ->
   gulp.src source.stylus
     .pipe concat "#{pkg.name}.styl"
-    .pipe stylus
-      compress: true
-      errors: true
+    .pipe(stylus(compress: true, errors: true))
     .pipe header banner, pkg: pkg
     .pipe gulp.dest "."
     .pipe connect.reload()

@@ -11,11 +11,11 @@ class Atoms.Atom.TableRow extends Atoms.Class.Atom
   _render: ->
     super
     if @entity?
-      columns = ""
+      tds = ""
       fields = @entity.constructor.attributes
       if @parent.attributes.columns
         fields = (field for field of @parent.attributes.columns)
-      for field in @entity.constructor.attributes when field in fields
+      for field, index in @entity.constructor.attributes when field in fields
         value = @entity[field] or ""
-        columns += """<td data-row-field="#{field}">#{value}</td>"""
-      @el.html columns
+        tds += """<td data-row-field="#{field}" data-row-index="#{index}">#{value}</td>"""
+      @el.html tds
