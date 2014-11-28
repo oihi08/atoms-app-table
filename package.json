@@ -1,6 +1,6 @@
 {
   "name"            : "atoms.app.table",
-  "version"         : "0.11.07",
+  "version"         : "1.0.0",
   "description"     : "",
   "homepage"        : "http://tapquo.com",
   "author"          : "Tapquo S.L.",
@@ -17,10 +17,6 @@
     "gulp-stylus" : "*",
     "gulp-uglify" : "*",
     "gulp-util"   : "*"
-  },
-  "scripts"         : {
-    "start": "nodemon zen.js zen development",
-    "test": "node zen.request.js"
   },
   "engines"         : { "node": "*"}
 }
