@@ -39,6 +39,21 @@ class Atoms.Molecule.Table extends Atoms.Class.Molecule
       do @_bindColumnOrder
 
   # -- Public Events -----------------------------------------------------------
+  findBy: (field, value) =>
+    @select (entity) ->
+      entity if entity[field]?.toLowerCase().trim() is value.toLowerCase().trim()
+
+  select: (callback) =>
+    do @clean
+    @children = []
+    if callback
+      records = (record for record in @_records when callback record.entity)
+    for record in records or @_records
+      @_addAtomEntity record.entity, @attributes.bind, record = false
+
+  all: ->
+    do @select
+
   row: (value) ->
     if !isNaN(value)
       atom = @children[value]
