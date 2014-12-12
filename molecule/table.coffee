@@ -47,8 +47,8 @@ class Atoms.Molecule.Table extends Atoms.Class.Molecule
     do @clean
     @children = []
     if callback
-      records = (record for record in @_records when callback record.entity)
-    for record in records or @_records
+      records = (record for record in @cache when callback record.entity)
+    for record in records or @cache
       @_addAtomEntity record.entity, @attributes.bind, record = false
 
   all: ->
@@ -58,7 +58,7 @@ class Atoms.Molecule.Table extends Atoms.Class.Molecule
     if !isNaN(value)
       atom = @children[value]
     else if value?.uid?
-      break for atom in @_records when atom.entity.uid is value.uid
+      break for atom in @cache when atom.entity.uid is value.uid
     @_activeRow atom if atom
 
   # -- Children Bubble Events --------------------------------------------------
@@ -76,11 +76,14 @@ class Atoms.Molecule.Table extends Atoms.Class.Molecule
       el.setAttribute("data-row-order", order)
 
       field = el.getAttribute("data-row-field").toLowerCase()
-      @entity (record.entity for record in @_records).sort (a, b) ->
+      ordered_entities = (record.entity for record in @cache).sort (a, b) ->
         if order is "asc"
           if (a[field] or "") > (b[field] or "") then 1 else - 1
         else
           if (a[field] or "999") < (b[field] or "999") then 1 else - 1
+
+      @cache = []
+      @entity ordered_entities
 
     @el.find("thead th").on "dragstart", (event) =>
       @source = event.target

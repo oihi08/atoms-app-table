@@ -1,4 +1,4 @@
-
+"use strict"
 
 $$ ->
   console.log Atoms.version, " || ", __.version
