@@ -1,6 +1,6 @@
 /**
  * atoms.app.table - 
- * @version v0.11.07
+ * @version v1.0.0
  * @link    http://tapquo.com
  * @author   ()
  * @license 

@@ -1,6 +1,6 @@
 {
   "name": "atoms-app-table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "atoms.app.table.js",
   "homepage": "http://atoms.tapquo.com",
   "license": "MIT",
@@ -9,5 +9,17 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/tapquo/atoms-app-table.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "atoms"                     : "*",
+    "atoms-icons"               : "*",
+    "stylmethods"               : "*"
   }
 }
